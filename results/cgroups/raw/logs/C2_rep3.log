@@ -1,0 +1,49 @@
+=== EXECUÇÃO: C2_rep3 ===
+Início: 2026-11-08T19:51:54.972261+00:00
+Término: 2026-11-08T19:52:01.821744+00:00
+Duração Total Observada: 6.8495s
+Código de Saída: 0 (Container ExitCode: 0)
+OOMKilled: False
+Comando Docker: docker run --name so-atividade3-cg-c2_rep3 --label project=so-atividade3 --label condition=C2 --label repetition=3 --network none --cpu-period=100000 --cpu-quota=100000 --memory=256m --memory-swap=256m --pids-limit=64 so-atividade3:latest python /app/worker.py --condition C2 --repetition 3 --iterations 20000000
+
+--- STDOUT ---
+{
+  "condition": "C2",
+  "repetition": 3,
+  "iterations": 20000000,
+  "checksum": "0xfeb38a80",
+  "status": "success",
+  "wall_time_seconds": 6.114312,
+  "process_cpu_time_seconds": 6.110252,
+  "work_per_second": 3271014.22,
+  "cpu": {
+    "cpu_max": "100000 100000",
+    "usage_usec_before": 479768,
+    "usage_usec_after": 6590290,
+    "usage_usec_delta": 6110522,
+    "nr_periods_delta": 61,
+    "nr_throttled_before": 0,
+    "nr_throttled_after": 8,
+    "nr_throttled_delta": 8,
+    "throttled_usec_before": 0,
+    "throttled_usec_after": 2566,
+    "throttled_usec_delta": 2566
+  },
+  "memory": {
+    "memory_max": 268435456,
+    "memory_current_before": 15130624,
+    "memory_current_after": 14024704,
+    "memory_peak": 15130624,
+    "memory_swap_max": 0,
+    "vm_rss_kb": 18492,
+    "vm_hwm_kb": 18492
+  },
+  "pids": {
+    "pids_max": 64,
+    "pids_current_before": 1,
+    "pids_current_after": 1
+  }
+}
+
+--- STDERR ---
+

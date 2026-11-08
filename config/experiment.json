@@ -1,0 +1,29 @@
+{
+  "project": "Sistemas Operacionais - Atividade 3",
+  "image": "python:3.12-slim",
+  "base_image_digest": "python@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b",
+  "custom_image_tag": "so-atividade3:latest",
+  "cpu_period": 100000,
+  "conditions": {
+    "C1": {
+      "cpu_quota": 50000,
+      "cpus": 0.5
+    },
+    "C2": {
+      "cpu_quota": 100000,
+      "cpus": 1.0
+    }
+  },
+  "memory_limit": "256m",
+  "memory_swap": "256m",
+  "pids_limit": 64,
+  "repetitions": 3,
+  "initial_iterations": 20000000,
+  "max_execution_seconds": 90,
+  "network": "none",
+  "frozen_iterations": 20000000,
+  "pilot_justification": "Quantidade de 20,000,000 itera\u00e7\u00f5es confirmada e congelada. O tempo de execu\u00e7\u00e3o (13.27s em C1) \u00e9 perfeitamente adequado: longo o bastante para produzir amostragem consistente de CFS throttling (milhares de microssegundos) e muito abaixo do teto de prote\u00e7\u00e3o operacional de 90 segundos.",
+  "pilot_date_utc": "2026-11-08T19:50:37.420350+00:00",
+  "pilot_wall_time_seconds": 13.273661,
+  "pilot_checksum": "0xfeb38a80"
+}

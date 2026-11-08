@@ -1,0 +1,13 @@
+DOCKER ENGINE CONFIGURAÇÃO E SUPORTE
+============================================================
+client_version: 29.8.1
+server_version: 29.8.1
+context: default
+daemon_operating_system: Ubuntu 24.04.5 LTS
+daemon_kernel_version: 7.0.0-38-generic
+cgroup_version: 2
+cgroup_driver: systemd
+storage_driver: overlay2
+intermediate_vm_present: False
+isolation_type: Bare-metal Linux (compartilhamento direto do kernel hospedeiro)
+============================================================

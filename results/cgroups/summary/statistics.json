@@ -1,0 +1,392 @@
+{
+  "conditions": {
+    "C1": {
+      "total_attempts": 3,
+      "valid_runs": 3,
+      "failed_runs": 0,
+      "wall_time": {
+        "median": 13.0738,
+        "mean": 12.725,
+        "min": 11.3856,
+        "max": 13.7155,
+        "stddev": 1.2035,
+        "raw_values": [
+          13.7155,
+          13.0738,
+          11.3856
+        ]
+      },
+      "cpu_time": {
+        "median": 6.5209,
+        "mean": 6.3559,
+        "min": 5.6837,
+        "max": 6.8633,
+        "raw_values": [
+          6.8633,
+          6.5209,
+          5.6837
+        ]
+      },
+      "work_per_second": {
+        "median": 1529772.36,
+        "mean": 1581528.24,
+        "min": 1458207.0,
+        "max": 1756605.36,
+        "raw_values": [
+          1458207.0,
+          1529772.36,
+          1756605.36
+        ]
+      },
+      "throttling": {
+        "median_throttled_usec": 6539270,
+        "mean_throttled_usec": 6355460.0,
+        "median_nr_throttled": 131,
+        "raw_throttled_usec": [
+          6834273,
+          6539270,
+          5692836
+        ]
+      }
+    },
+    "C2": {
+      "total_attempts": 3,
+      "valid_runs": 3,
+      "failed_runs": 0,
+      "wall_time": {
+        "median": 6.1143,
+        "mean": 6.2072,
+        "min": 5.9715,
+        "max": 6.5358,
+        "stddev": 0.2934,
+        "raw_values": [
+          5.9715,
+          6.5358,
+          6.1143
+        ]
+      },
+      "cpu_time": {
+        "median": 6.1103,
+        "mean": 6.2023,
+        "min": 5.9654,
+        "max": 6.5314,
+        "raw_values": [
+          5.9654,
+          6.5314,
+          6.1103
+        ]
+      },
+      "work_per_second": {
+        "median": 3271014.22,
+        "mean": 3226771.03,
+        "min": 3060051.67,
+        "max": 3349247.19,
+        "raw_values": [
+          3349247.19,
+          3060051.67,
+          3271014.22
+        ]
+      },
+      "throttling": {
+        "median_throttled_usec": 2343,
+        "mean_throttled_usec": 2349.0,
+        "median_nr_throttled": 7,
+        "raw_throttled_usec": [
+          2137,
+          2343,
+          2566
+        ]
+      }
+    }
+  },
+  "comparison": {
+    "speedup_ratio_wall_time (C1/C2)": 2.138,
+    "throughput_ratio_work_per_sec (C2/C1)": 2.138,
+    "theoretical_quota_ratio": 2.0,
+    "divergence_from_theoretical_percentage": 6.9
+  },
+  "records": [
+    {
+      "condition": "C1",
+      "repetition": 1,
+      "is_pilot": false,
+      "run_tag": "C1_rep1",
+      "container_name": "so-atividade3-cg-c1_rep1",
+      "start_time_utc": "2026-11-08T19:50:58.791675+00:00",
+      "end_time_utc": "2026-11-08T19:51:13.644833+00:00",
+      "total_elapsed_seconds": 14.853122,
+      "exit_code": 0,
+      "oom_killed": false,
+      "status": "success",
+      "validation_errors": [],
+      "iterations": 20000000,
+      "checksum": "0xfeb38a80",
+      "wall_time_seconds": 13.715474,
+      "process_cpu_time_seconds": 6.863256,
+      "work_per_second": 1458207.0,
+      "cpu": {
+        "cpu_max": "50000 100000",
+        "usage_usec_before": 462281,
+        "usage_usec_after": 7326420,
+        "usage_usec_delta": 6864139,
+        "nr_periods_delta": 137,
+        "nr_throttled_before": 8,
+        "nr_throttled_after": 145,
+        "nr_throttled_delta": 137,
+        "throttled_usec_before": 366218,
+        "throttled_usec_after": 7200491,
+        "throttled_usec_delta": 6834273
+      },
+      "memory": {
+        "memory_max": 268435456,
+        "memory_current_before": 14217216,
+        "memory_current_after": 14036992,
+        "memory_peak": 14217216,
+        "memory_swap_max": 0,
+        "vm_rss_kb": 18488,
+        "vm_hwm_kb": 18488
+      },
+      "pids": {
+        "pids_max": 64,
+        "pids_current_before": 1,
+        "pids_current_after": 1
+      },
+      "log_file": "results/cgroups/raw/logs/C1_rep1.log"
+    },
+    {
+      "condition": "C2",
+      "repetition": 1,
+      "is_pilot": false,
+      "run_tag": "C2_rep1",
+      "container_name": "so-atividade3-cg-c2_rep1",
+      "start_time_utc": "2026-11-08T19:51:13.792204+00:00",
+      "end_time_utc": "2026-11-08T19:51:20.461140+00:00",
+      "total_elapsed_seconds": 6.668896,
+      "exit_code": 0,
+      "oom_killed": false,
+      "status": "success",
+      "validation_errors": [],
+      "iterations": 20000000,
+      "checksum": "0xfeb38a80",
+      "wall_time_seconds": 5.971491,
+      "process_cpu_time_seconds": 5.965392,
+      "work_per_second": 3349247.19,
+      "cpu": {
+        "cpu_max": "100000 100000",
+        "usage_usec_before": 412402,
+        "usage_usec_after": 6378397,
+        "usage_usec_delta": 5965995,
+        "nr_periods_delta": 59,
+        "nr_throttled_before": 0,
+        "nr_throttled_after": 3,
+        "nr_throttled_delta": 3,
+        "throttled_usec_before": 0,
+        "throttled_usec_after": 2137,
+        "throttled_usec_delta": 2137
+      },
+      "memory": {
+        "memory_max": 268435456,
+        "memory_current_before": 14749696,
+        "memory_current_after": 14032896,
+        "memory_peak": 14749696,
+        "memory_swap_max": 0,
+        "vm_rss_kb": 18488,
+        "vm_hwm_kb": 18488
+      },
+      "pids": {
+        "pids_max": 64,
+        "pids_current_before": 1,
+        "pids_current_after": 1
+      },
+      "log_file": "results/cgroups/raw/logs/C2_rep1.log"
+    },
+    {
+      "condition": "C1",
+      "repetition": 2,
+      "is_pilot": false,
+      "run_tag": "C1_rep2",
+      "container_name": "so-atividade3-cg-c1_rep2",
+      "start_time_utc": "2026-11-08T19:51:20.613398+00:00",
+      "end_time_utc": "2026-11-08T19:51:34.755878+00:00",
+      "total_elapsed_seconds": 14.142449,
+      "exit_code": 0,
+      "oom_killed": false,
+      "status": "success",
+      "validation_errors": [],
+      "iterations": 20000000,
+      "checksum": "0xfeb38a80",
+      "wall_time_seconds": 13.073841,
+      "process_cpu_time_seconds": 6.52089,
+      "work_per_second": 1529772.36,
+      "cpu": {
+        "cpu_max": "50000 100000",
+        "usage_usec_before": 437558,
+        "usage_usec_after": 6959425,
+        "usage_usec_delta": 6521867,
+        "nr_periods_delta": 131,
+        "nr_throttled_before": 7,
+        "nr_throttled_after": 138,
+        "nr_throttled_delta": 131,
+        "throttled_usec_before": 321607,
+        "throttled_usec_after": 6860877,
+        "throttled_usec_delta": 6539270
+      },
+      "memory": {
+        "memory_max": 268435456,
+        "memory_current_before": 14209024,
+        "memory_current_after": 14036992,
+        "memory_peak": 14209024,
+        "memory_swap_max": 0,
+        "vm_rss_kb": 18472,
+        "vm_hwm_kb": 18472
+      },
+      "pids": {
+        "pids_max": 64,
+        "pids_current_before": 1,
+        "pids_current_after": 1
+      },
+      "log_file": "results/cgroups/raw/logs/C1_rep2.log"
+    },
+    {
+      "condition": "C2",
+      "repetition": 2,
+      "is_pilot": false,
+      "run_tag": "C2_rep2",
+      "container_name": "so-atividade3-cg-c2_rep2",
+      "start_time_utc": "2026-11-08T19:51:34.947999+00:00",
+      "end_time_utc": "2026-11-08T19:51:42.294831+00:00",
+      "total_elapsed_seconds": 7.346786,
+      "exit_code": 0,
+      "oom_killed": false,
+      "status": "success",
+      "validation_errors": [],
+      "iterations": 20000000,
+      "checksum": "0xfeb38a80",
+      "wall_time_seconds": 6.535837,
+      "process_cpu_time_seconds": 6.531401,
+      "work_per_second": 3060051.67,
+      "cpu": {
+        "cpu_max": "100000 100000",
+        "usage_usec_before": 515169,
+        "usage_usec_after": 7047009,
+        "usage_usec_delta": 6531840,
+        "nr_periods_delta": 65,
+        "nr_throttled_before": 1,
+        "nr_throttled_after": 8,
+        "nr_throttled_delta": 7,
+        "throttled_usec_before": 171,
+        "throttled_usec_after": 2514,
+        "throttled_usec_delta": 2343
+      },
+      "memory": {
+        "memory_max": 268435456,
+        "memory_current_before": 14540800,
+        "memory_current_after": 14032896,
+        "memory_peak": 14540800,
+        "memory_swap_max": 0,
+        "vm_rss_kb": 18504,
+        "vm_hwm_kb": 18504
+      },
+      "pids": {
+        "pids_max": 64,
+        "pids_current_before": 1,
+        "pids_current_after": 1
+      },
+      "log_file": "results/cgroups/raw/logs/C2_rep2.log"
+    },
+    {
+      "condition": "C1",
+      "repetition": 3,
+      "is_pilot": false,
+      "run_tag": "C1_rep3",
+      "container_name": "so-atividade3-cg-c1_rep3",
+      "start_time_utc": "2026-11-08T19:51:42.468119+00:00",
+      "end_time_utc": "2026-11-08T19:51:54.842312+00:00",
+      "total_elapsed_seconds": 12.374141,
+      "exit_code": 0,
+      "oom_killed": false,
+      "status": "success",
+      "validation_errors": [],
+      "iterations": 20000000,
+      "checksum": "0xfeb38a80",
+      "wall_time_seconds": 11.385597,
+      "process_cpu_time_seconds": 5.683686,
+      "work_per_second": 1756605.36,
+      "cpu": {
+        "cpu_max": "50000 100000",
+        "usage_usec_before": 402131,
+        "usage_usec_after": 6086751,
+        "usage_usec_delta": 5684620,
+        "nr_periods_delta": 114,
+        "nr_throttled_before": 7,
+        "nr_throttled_after": 121,
+        "nr_throttled_delta": 114,
+        "throttled_usec_before": 329725,
+        "throttled_usec_after": 6022561,
+        "throttled_usec_delta": 5692836
+      },
+      "memory": {
+        "memory_max": 268435456,
+        "memory_current_before": 14262272,
+        "memory_current_after": 14024704,
+        "memory_peak": 14262272,
+        "memory_swap_max": 0,
+        "vm_rss_kb": 18576,
+        "vm_hwm_kb": 18576
+      },
+      "pids": {
+        "pids_max": 64,
+        "pids_current_before": 1,
+        "pids_current_after": 1
+      },
+      "log_file": "results/cgroups/raw/logs/C1_rep3.log"
+    },
+    {
+      "condition": "C2",
+      "repetition": 3,
+      "is_pilot": false,
+      "run_tag": "C2_rep3",
+      "container_name": "so-atividade3-cg-c2_rep3",
+      "start_time_utc": "2026-11-08T19:51:54.972261+00:00",
+      "end_time_utc": "2026-11-08T19:52:01.821744+00:00",
+      "total_elapsed_seconds": 6.849452,
+      "exit_code": 0,
+      "oom_killed": false,
+      "status": "success",
+      "validation_errors": [],
+      "iterations": 20000000,
+      "checksum": "0xfeb38a80",
+      "wall_time_seconds": 6.114312,
+      "process_cpu_time_seconds": 6.110252,
+      "work_per_second": 3271014.22,
+      "cpu": {
+        "cpu_max": "100000 100000",
+        "usage_usec_before": 479768,
+        "usage_usec_after": 6590290,
+        "usage_usec_delta": 6110522,
+        "nr_periods_delta": 61,
+        "nr_throttled_before": 0,
+        "nr_throttled_after": 8,
+        "nr_throttled_delta": 8,
+        "throttled_usec_before": 0,
+        "throttled_usec_after": 2566,
+        "throttled_usec_delta": 2566
+      },
+      "memory": {
+        "memory_max": 268435456,
+        "memory_current_before": 15130624,
+        "memory_current_after": 14024704,
+        "memory_peak": 15130624,
+        "memory_swap_max": 0,
+        "vm_rss_kb": 18492,
+        "vm_hwm_kb": 18492
+      },
+      "pids": {
+        "pids_max": 64,
+        "pids_current_before": 1,
+        "pids_current_after": 1
+      },
+      "log_file": "results/cgroups/raw/logs/C2_rep3.log"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+RELATÓRIO DO AMBIENTE EXPERIMENTAL (ATIVIDADE 3)
+============================================================
+Timestamp UTC:            2026-11-08T19:48:38.488607+00:00
+Host OS:                  Ubuntu 24.04.5 LTS
+Host Kernel:              7.0.0-38-generic
+Arquitetura:              x86_64
+CPUs Lógicas:             12
+Memória Total:            23.18 GiB
+Docker Client Version:    29.8.1
+Docker Server Version:    29.8.1
+Docker Context:           default
+Daemon OS:                Ubuntu 24.04.5 LTS
+Daemon Kernel:            7.0.0-38-generic
+Cgroup Version:           2
+Cgroup Driver:            systemd
+Storage Driver:           overlay2
+VM Intermediária:         Não (Bare-metal)
+Imagem Base Digest:       python@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+Imagem Customizada ID:    sha256:d3ed221c9b03ae291405ffb05452b6116266b56312ddd65f054cb3c0d7f80863
+Python no Contêiner:      Python 3.12.16
+============================================================

@@ -1,0 +1,35 @@
+{
+  "timestamp_utc": "2026-11-08T19:48:38.488607+00:00",
+  "local_host": {
+    "os_pretty_name": "Ubuntu 24.04.5 LTS",
+    "os_name": "Ubuntu",
+    "os_version": "24.04.5 LTS (Noble Numbat)",
+    "kernel_release": "7.0.0-38-generic",
+    "kernel_version_details": "#38~24.04.4-Ubuntu SMP PREEMPT_DYNAMIC Mon Sep 14 16:37:11 UTC 2",
+    "architecture": "x86_64",
+    "logical_cpus": 12,
+    "memory_total_bytes": 24884551680,
+    "memory_total_human": "23.18 GiB"
+  },
+  "docker_environment": {
+    "client_version": "29.8.1",
+    "server_version": "29.8.1",
+    "context": "default",
+    "daemon_operating_system": "Ubuntu 24.04.5 LTS",
+    "daemon_kernel_version": "7.0.0-38-generic",
+    "cgroup_version": "2",
+    "cgroup_driver": "systemd",
+    "storage_driver": "overlay2",
+    "intermediate_vm_present": false,
+    "isolation_type": "Bare-metal Linux (compartilhamento direto do kernel hospedeiro)"
+  },
+  "container_image": {
+    "base_image_tag": "python:3.12-slim",
+    "base_image_digest": "python@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b",
+    "custom_image_tag": "so-atividade3:latest",
+    "custom_image_id": "sha256:d3ed221c9b03ae291405ffb05452b6116266b56312ddd65f054cb3c0d7f80863",
+    "custom_image_created": "2026-11-08T16:47:50.545771592-03:00",
+    "python_container_version": "Python 3.12.16",
+    "build_command": "docker build --build-arg PYTHON_BASE=\"python@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b\" -t so-atividade3:latest -f docker/Dockerfile ."
+  }
+}

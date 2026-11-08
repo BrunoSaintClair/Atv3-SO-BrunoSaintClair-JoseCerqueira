@@ -1,0 +1,314 @@
+{
+  "audit_table_section_11": [
+    {
+      "item": "Identifica\u00e7\u00e3o do ambiente",
+      "status": "PASS",
+      "evidence": "results/environment/environment.json"
+    },
+    {
+      "item": "Namespaces",
+      "status": "PASS",
+      "evidence": "results/namespaces/namespaces.csv"
+    },
+    {
+      "item": "Cgroups CPU",
+      "status": "PASS",
+      "evidence": "results/cgroups/raw/C1_rep1.json a C2_rep3.json"
+    },
+    {
+      "item": "Cgroups mem\u00f3ria",
+      "status": "PASS",
+      "evidence": "results/cgroups/raw/C1_rep1.json (memory_max=268435456, memory_swap_max=0)"
+    },
+    {
+      "item": "Limite de processos",
+      "status": "PASS",
+      "evidence": "results/cgroups/raw/C1_rep1.json (pids_max=64)"
+    },
+    {
+      "item": "Bind mount read-only",
+      "status": "PASS",
+      "evidence": "results/readonly/readonly_test.json (error_code=EROFS, errno=30)"
+    },
+    {
+      "item": "Testes automatizados",
+      "status": "PASS",
+      "evidence": "scripts/test_readonly.py e scripts/worker.py"
+    },
+    {
+      "item": "Gera\u00e7\u00e3o de resultados",
+      "status": "PASS",
+      "evidence": "results/cgroups/csv/results.csv e results/graphs/*.png"
+    },
+    {
+      "item": "Documenta\u00e7\u00e3o",
+      "status": "PASS",
+      "evidence": "README.md e results/report/relatorio.pdf"
+    },
+    {
+      "item": "Reexecu\u00e7\u00e3o do projeto",
+      "status": "PASS",
+      "evidence": "scripts/main.py (orquestrador execut\u00e1vel com suporte a check, all, cleanup)"
+    }
+  ],
+  "summary": {
+    "total": 48,
+    "pass": 48,
+    "fail": 0,
+    "not_run": 0,
+    "blocked": 0,
+    "compliance_percentage": 100.0
+  },
+  "categories": {
+    "Ambiente": [
+      {
+        "item": "Ambiente identificado",
+        "status": "PASS",
+        "detail": "Host Kernel: 7.0.0-38-generic (Ubuntu 24.04.5 LTS)"
+      },
+      {
+        "item": "Docker funcional",
+        "status": "PASS",
+        "detail": "Docker Server: 29.8.1"
+      },
+      {
+        "item": "Cgroup v2 identificado",
+        "status": "PASS",
+        "detail": "Cgroup Version: 2 (Driver: systemd)"
+      },
+      {
+        "item": "Imagem fixada por digest",
+        "status": "PASS",
+        "detail": "Digest: python@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b"
+      },
+      {
+        "item": "Diagrama criado",
+        "status": "PASS",
+        "detail": "Diagrama Mermaid em docs/architecture.md e results/environment/architecture.md"
+      }
+    ],
+    "Namespaces": [
+      {
+        "item": "Cont\u00eainer A criado",
+        "status": "PASS",
+        "detail": "Cont\u00eainer A: so-atividade3-ns-a"
+      },
+      {
+        "item": "Cont\u00eainer B criado",
+        "status": "PASS",
+        "detail": "Cont\u00eainer B: so-atividade3-ns-b"
+      },
+      {
+        "item": "PID interno registrado",
+        "status": "PASS",
+        "detail": "Comm PID 1: sleep e sleep"
+      },
+      {
+        "item": "PID do host do daemon registrado",
+        "status": "PASS",
+        "detail": "Host PIDs: 146756 e 146854"
+      },
+      {
+        "item": "PID namespace coletado",
+        "status": "PASS",
+        "detail": "A: pid:[4026533481] | B: pid:[4026533542]"
+      },
+      {
+        "item": "Mount namespace coletado",
+        "status": "PASS",
+        "detail": "A: mnt:[4026533478] | B: mnt:[4026533539]"
+      },
+      {
+        "item": "Network namespace coletado",
+        "status": "PASS",
+        "detail": "A: net:[4026533483] | B: net:[4026533544]"
+      },
+      {
+        "item": "Tabela comparativa criada",
+        "status": "PASS",
+        "detail": "Arquivo results/namespaces/namespaces.csv existente"
+      },
+      {
+        "item": "Interpreta\u00e7\u00e3o escrita",
+        "status": "PASS",
+        "detail": "Interpreta\u00e7\u00e3o t\u00e9cnica presente (5147 caracteres)"
+      }
+    ],
+    "Cgroups": [
+      {
+        "item": "Carga determin\u00edstica implementada",
+        "status": "PASS",
+        "detail": "Algoritmo LCG de inteiros de 32 bits implementado em scripts/worker.py"
+      },
+      {
+        "item": "Teste piloto realizado",
+        "status": "PASS",
+        "detail": "Registro do piloto presente em results/cgroups/raw/"
+      },
+      {
+        "item": "Itera\u00e7\u00f5es congeladas",
+        "status": "PASS",
+        "detail": "Itera\u00e7\u00f5es congeladas em 20,000,000"
+      },
+      {
+        "item": "C1 configurada",
+        "status": "PASS",
+        "detail": "C1 Quota: 50000 / 100000 (0.5 CPU)"
+      },
+      {
+        "item": "C2 configurada",
+        "status": "PASS",
+        "detail": "C2 Quota: 100000 / 100000 (1.0 CPU)"
+      },
+      {
+        "item": "Mem\u00f3ria limitada",
+        "status": "PASS",
+        "detail": "Memory limit: 256m (256 MiB)"
+      },
+      {
+        "item": "Mem\u00f3ria + swap limitada",
+        "status": "PASS",
+        "detail": "Memory swap: 256m (0 swap adicional)"
+      },
+      {
+        "item": "PIDs limitados",
+        "status": "PASS",
+        "detail": "PIDs limit: 64"
+      },
+      {
+        "item": "cpu.max confirmado",
+        "status": "PASS",
+        "detail": "cpu.max confirmado no kernel em todas as 6 execu\u00e7\u00f5es"
+      },
+      {
+        "item": "memory.max confirmado",
+        "status": "PASS",
+        "detail": "268435456 bytes (256 MiB) confirmado em todas as 6 execu\u00e7\u00f5es"
+      },
+      {
+        "item": "pids.max confirmado",
+        "status": "PASS",
+        "detail": "64 tarefas confirmado em todas as 6 execu\u00e7\u00f5es"
+      },
+      {
+        "item": "Seis registros preservados",
+        "status": "PASS",
+        "detail": "6/6 registros brutos JSON v\u00e1lidos em results/cgroups/raw/"
+      },
+      {
+        "item": "Checksums conferidos",
+        "status": "PASS",
+        "detail": "Checksum determin\u00edstico \u00fanico: 0xfeb38a80"
+      },
+      {
+        "item": "CSV gerado",
+        "status": "PASS",
+        "detail": "results/cgroups/csv/results.csv presente"
+      },
+      {
+        "item": "Medianas calculadas",
+        "status": "PASS",
+        "detail": "C1: 13.0738s | C2: 6.1143s"
+      },
+      {
+        "item": "Varia\u00e7\u00e3o calculada",
+        "status": "PASS",
+        "detail": "C1 StdDev: 1.2035s | C2 StdDev: 0.2934s"
+      },
+      {
+        "item": "Gr\u00e1fico gerado",
+        "status": "PASS",
+        "detail": "Gr\u00e1ficos work_per_second.png e wall_time_comparison.png gerados"
+      },
+      {
+        "item": "An\u00e1lise documentada",
+        "status": "PASS",
+        "detail": "docs/analysis.md presente (7152 caracteres)"
+      }
+    ],
+    "Read-only": [
+      {
+        "item": "Diret\u00f3rio sint\u00e9tico criado",
+        "status": "PASS",
+        "detail": "dados_demo/texto.txt configurado com permiss\u00e3o 777"
+      },
+      {
+        "item": "Usu\u00e1rio n\u00e3o root utilizado",
+        "status": "PASS",
+        "detail": "UID: 1000"
+      },
+      {
+        "item": "Capabilities removidas",
+        "status": "PASS",
+        "detail": "--cap-drop=ALL aplicado"
+      },
+      {
+        "item": "no-new-privileges aplicado",
+        "status": "PASS",
+        "detail": "no-new-privileges:true confirmado"
+      },
+      {
+        "item": "Leitura bem-sucedida",
+        "status": "PASS",
+        "detail": "Conte\u00fado lido: 'Documento sintetico'"
+      },
+      {
+        "item": "Escrita negada",
+        "status": "PASS",
+        "detail": "Bloqueado pelo Kernel"
+      },
+      {
+        "item": "C\u00f3digo de erro registrado",
+        "status": "PASS",
+        "detail": "C\u00f3digo do kernel: EROFS (errno 30) - Read-only file system"
+      }
+    ],
+    "Documenta\u00e7\u00e3o": [
+      {
+        "item": "README completo",
+        "status": "PASS",
+        "detail": "README.md com 14274 caracteres"
+      },
+      {
+        "item": "Relat\u00f3rio PDF gerado",
+        "status": "PASS",
+        "detail": "results/report/relatorio.pdf (378.9 KB)"
+      },
+      {
+        "item": "Dados brutos dispon\u00edveis",
+        "status": "PASS",
+        "detail": "Arquivos JSON em results/cgroups/raw/ e logs/"
+      },
+      {
+        "item": "Gr\u00e1ficos dispon\u00edveis",
+        "status": "PASS",
+        "detail": "PNGs em results/graphs/"
+      },
+      {
+        "item": "Diagrama dispon\u00edvel",
+        "status": "PASS",
+        "detail": "Mermaid em results/environment/architecture.md"
+      },
+      {
+        "item": "Contribui\u00e7\u00f5es individuais registradas",
+        "status": "PASS",
+        "detail": "Contribui\u00e7\u00f5es de Bruno Saint Clair e Jose Cerqueira detalhadas no relat\u00f3rio"
+      },
+      {
+        "item": "Declara\u00e7\u00e3o de IA dispon\u00edvel",
+        "status": "PASS",
+        "detail": "docs/ai_usage.md presente"
+      },
+      {
+        "item": "Limita\u00e7\u00f5es documentadas",
+        "status": "PASS",
+        "detail": "docs/limitations.md presente"
+      },
+      {
+        "item": "Refer\u00eancias inclu\u00eddas",
+        "status": "PASS",
+        "detail": "Refer\u00eancias aos manuais Linux, Cgroups e Docker inclu\u00eddas"
+      }
+    ]
+  }
+}

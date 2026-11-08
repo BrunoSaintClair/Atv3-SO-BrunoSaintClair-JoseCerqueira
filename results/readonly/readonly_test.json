@@ -1,0 +1,28 @@
+{
+  "timestamp_utc": "2026-11-08T20:13:19.692208+00:00",
+  "overall_status": "PASS",
+  "security_profile": {
+    "user": "1000:1000",
+    "uid": 1000,
+    "gid": 1000,
+    "cap_drop": "ALL",
+    "no_new_privileges": true,
+    "network": "none"
+  },
+  "mount_configuration": {
+    "type": "bind",
+    "source": "/home/bruno/Desktop/Faculdade/10/SO/Unidade 3/dados_demo",
+    "target": "/dados",
+    "readonly": true,
+    "host_dir_permissions": "0777 (aberto propositalmente para validar restri\u00e7\u00e3o do VFS)"
+  },
+  "results": {
+    "read_status": "Sucesso",
+    "read_content": "Documento sintetico",
+    "write_status": "Bloqueado pelo Kernel",
+    "error_code": "EROFS",
+    "errno": 30,
+    "error_message": "Read-only file system",
+    "exit_code": 0
+  }
+}

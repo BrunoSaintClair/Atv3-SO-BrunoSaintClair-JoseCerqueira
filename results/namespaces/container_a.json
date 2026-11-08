@@ -1,0 +1,13 @@
+{
+  "container_name": "so-atividade3-ns-a",
+  "pid_host_daemon": 160574,
+  "pid_1_internal_comm": "sleep",
+  "namespaces": {
+    "pid": "pid:[4026533481]",
+    "mnt": "mnt:[4026533478]",
+    "net": "net:[4026533483]",
+    "ipc": "ipc:[4026533480]",
+    "uts": "uts:[4026533479]",
+    "user": "user:[4026531837]"
+  }
+}

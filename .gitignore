@@ -1,0 +1,13 @@
+# Ambientes virtuais e cache Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Diretório sintético de testes
+dados_demo/
+
+# Arquivos de sistema e editores
+.DS_Store
+.idea/
+.vscode/

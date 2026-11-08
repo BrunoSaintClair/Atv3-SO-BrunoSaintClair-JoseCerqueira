@@ -1,0 +1,9 @@
+recurso,container_a,container_b,resultado
+host_pid,160574,160668,Diferente
+internal_pid_1,sleep,sleep,Ambos PID 1
+pid,pid:[4026533481],pid:[4026533542],Diferente (Isolado)
+mnt,mnt:[4026533478],mnt:[4026533539],Diferente (Isolado)
+net,net:[4026533483],net:[4026533544],Diferente (Isolado)
+ipc,ipc:[4026533480],ipc:[4026533541],Diferente (Isolado)
+uts,uts:[4026533479],uts:[4026533540],Diferente (Isolado)
+user,user:[4026531837],user:[4026531837],Igual (Compartilhado)

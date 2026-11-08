@@ -1,0 +1,33 @@
+=== LOG DE EXECUÇÃO: TESTE DE MONTAGEM SOMENTE LEITURA ===
+Data UTC: 2026-11-08T20:13:19.691597+00:00
+Código de Saída: 0
+Comando Executado: docker run --rm --name so-atividade3-readonly-test --label project=so-atividade3 --label module=readonly --network none --user 1000:1000 --cap-drop=ALL --security-opt no-new-privileges:true --mount type=bind,source=/home/bruno/Desktop/Faculdade/10/SO/Unidade 3/dados_demo,target=/dados,readonly so-atividade3:latest python /app/test_readonly.py
+
+--- STDOUT ---
+[TESTE LEITURA] Sucesso. Conteúdo lido:
+Documento sintetico
+[TESTE ESCRITA] Sucesso: Escrita bloqueada pelo kernel.
+Código de erro: EROFS (30) - Read-only file system
+
+--- RESUMO DO TESTE ---
+{
+  "uid": 1000,
+  "gid": 1000,
+  "read_test": {
+    "file": "/dados/texto.txt",
+    "success": true,
+    "content": "Documento sintetico",
+    "error": null
+  },
+  "write_test": {
+    "file": "/dados/novo.txt",
+    "write_denied": true,
+    "errno": 30,
+    "error_code": "EROFS",
+    "error_message": "Read-only file system"
+  },
+  "status": "success"
+}
+
+--- STDERR ---
+

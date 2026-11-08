@@ -1,10 +1,6 @@
 # Sistemas Operacionais — Atividade 3
 ## Virtualização Leve, Contêineres, Namespaces e Cgroups v2
 
-Este repositório contém a solução completa, automatizada e reproduzível para os experimentos práticos da **Atividade 3 de Sistemas Operacionais** (DCOMP / UFS), desenvolvida por **Bruno Saint Clair** e **Jose Cerqueira**.
-
-A solução foi desenvolvida **do zero**, sem utilização de kits de apoio da disciplina, garantindo que 100% dos dados apresentados advenham de execuções reais em ambiente Linux nativo (*bare-metal*).
-
 ---
 
 ## Sumário
@@ -67,7 +63,7 @@ O projeto requer um ambiente Linux real com Cgroups v2 ativo:
 ## 4. Estrutura do Repositório
 
 ```text
-atividade3/
+Unidade 3/ (raiz do repositório)
 │
 ├── README.md                           # Manual de reprodução e documentação técnica
 ├── requirements.txt                    # Dependências de visualização (matplotlib, reportlab)

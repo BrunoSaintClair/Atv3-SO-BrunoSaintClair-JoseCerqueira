@@ -42,7 +42,7 @@
 | Contêiner A criado | **PASS** | Contêiner A: so-atividade3-ns-a |
 | Contêiner B criado | **PASS** | Contêiner B: so-atividade3-ns-b |
 | PID interno registrado | **PASS** | Comm PID 1: sleep e sleep |
-| PID do host do daemon registrado | **PASS** | Host PIDs: 146756 e 146854 |
+| PID do host do daemon registrado | **PASS** | Host PIDs: 160574 e 160668 |
 | PID namespace coletado | **PASS** | A: pid:[4026533481] | B: pid:[4026533542] |
 | Mount namespace coletado | **PASS** | A: mnt:[4026533478] | B: mnt:[4026533539] |
 | Network namespace coletado | **PASS** | A: net:[4026533483] | B: net:[4026533544] |
@@ -88,7 +88,7 @@
 
 | Item de Validação | Status | Detalhes Técnicos |
 |---|:---:|---|
-| README completo | **PASS** | README.md com 14274 caracteres |
+| README completo | **PASS** | README.md com 14295 caracteres |
 | Relatório PDF gerado | **PASS** | results/report/relatorio.pdf (378.9 KB) |
 | Dados brutos disponíveis | **PASS** | Arquivos JSON em results/cgroups/raw/ e logs/ |
 | Gráficos disponíveis | **PASS** | PNGs em results/graphs/ |

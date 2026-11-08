@@ -106,7 +106,7 @@
       {
         "item": "PID do host do daemon registrado",
         "status": "PASS",
-        "detail": "Host PIDs: 146756 e 146854"
+        "detail": "Host PIDs: 160574 e 160668"
       },
       {
         "item": "PID namespace coletado",
@@ -267,7 +267,7 @@
       {
         "item": "README completo",
         "status": "PASS",
-        "detail": "README.md com 14274 caracteres"
+        "detail": "README.md com 14295 caracteres"
       },
       {
         "item": "Relat\u00f3rio PDF gerado",

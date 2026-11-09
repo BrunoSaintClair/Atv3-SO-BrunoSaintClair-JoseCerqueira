@@ -43,7 +43,7 @@
     {
       "item": "Documenta\u00e7\u00e3o",
       "status": "PASS",
-      "evidence": "README.md e results/report/relatorio.pdf"
+      "evidence": "README.md, docs/ e relat\u00f3rios t\u00e9cnicos em results/"
     },
     {
       "item": "Reexecu\u00e7\u00e3o do projeto",
@@ -52,8 +52,8 @@
     }
   ],
   "summary": {
-    "total": 48,
-    "pass": 48,
+    "total": 51,
+    "pass": 51,
     "fail": 0,
     "not_run": 0,
     "blocked": 0,
@@ -106,22 +106,22 @@
       {
         "item": "PID do host do daemon registrado",
         "status": "PASS",
-        "detail": "Host PIDs: 160574 e 160668"
+        "detail": "Host PIDs: 329376 e 329454"
       },
       {
         "item": "PID namespace coletado",
         "status": "PASS",
-        "detail": "A: pid:[4026533481] | B: pid:[4026533542]"
+        "detail": "A: pid:[4026533157] | B: pid:[4026533482]"
       },
       {
         "item": "Mount namespace coletado",
         "status": "PASS",
-        "detail": "A: mnt:[4026533478] | B: mnt:[4026533539]"
+        "detail": "A: mnt:[4026533138] | B: mnt:[4026533479]"
       },
       {
         "item": "Network namespace coletado",
         "status": "PASS",
-        "detail": "A: net:[4026533483] | B: net:[4026533544]"
+        "detail": "A: net:[4026533159] | B: net:[4026533484]"
       },
       {
         "item": "Tabela comparativa criada",
@@ -131,7 +131,7 @@
       {
         "item": "Interpreta\u00e7\u00e3o escrita",
         "status": "PASS",
-        "detail": "Interpreta\u00e7\u00e3o t\u00e9cnica presente (5147 caracteres)"
+        "detail": "Interpreta\u00e7\u00e3o t\u00e9cnica presente (5139 caracteres)"
       }
     ],
     "Cgroups": [
@@ -223,7 +223,7 @@
       {
         "item": "An\u00e1lise documentada",
         "status": "PASS",
-        "detail": "docs/analysis.md presente (7152 caracteres)"
+        "detail": "docs/analysis.md presente (7142 caracteres)"
       }
     ],
     "Read-only": [
@@ -267,12 +267,27 @@
       {
         "item": "README completo",
         "status": "PASS",
-        "detail": "README.md com 14295 caracteres"
+        "detail": "README.md com 13714 caracteres"
       },
       {
-        "item": "Relat\u00f3rio PDF gerado",
+        "item": "An\u00e1lise t\u00e9cnica de resultados",
         "status": "PASS",
-        "detail": "results/report/relatorio.pdf (378.9 KB)"
+        "detail": "docs/analysis.md presente com discuss\u00e3o quantitativa aprofundada"
+      },
+      {
+        "item": "S\u00edntese estat\u00edstica documentada",
+        "status": "PASS",
+        "detail": "results/cgroups/summary/summary.md presente com medianas, m\u00e9dias e dispers\u00e3o"
+      },
+      {
+        "item": "Interpreta\u00e7\u00e3o de namespaces",
+        "status": "PASS",
+        "detail": "results/namespaces/interpretation.md presente com fundamentos de isolamento"
+      },
+      {
+        "item": "Interpreta\u00e7\u00e3o de read-only",
+        "status": "PASS",
+        "detail": "results/readonly/interpretation.md presente com distin\u00e7\u00e3o entre VFS e DAC"
       },
       {
         "item": "Dados brutos dispon\u00edveis",
@@ -285,14 +300,14 @@
         "detail": "PNGs em results/graphs/"
       },
       {
-        "item": "Diagrama dispon\u00edvel",
+        "item": "Diagrama de arquitetura dispon\u00edvel",
         "status": "PASS",
-        "detail": "Mermaid em results/environment/architecture.md"
+        "detail": "Mermaid em results/environment/architecture.md e docs/architecture.md"
       },
       {
         "item": "Contribui\u00e7\u00f5es individuais registradas",
         "status": "PASS",
-        "detail": "Contribui\u00e7\u00f5es de Bruno Saint Clair e Jose Cerqueira detalhadas no relat\u00f3rio"
+        "detail": "Contribui\u00e7\u00f5es de Bruno Saint Clair e Jose Cerqueira detalhadas no README.md"
       },
       {
         "item": "Declara\u00e7\u00e3o de IA dispon\u00edvel",
@@ -307,7 +322,7 @@
       {
         "item": "Refer\u00eancias inclu\u00eddas",
         "status": "PASS",
-        "detail": "Refer\u00eancias aos manuais Linux, Cgroups e Docker inclu\u00eddas"
+        "detail": "Refer\u00eancias aos manuais Linux, Cgroups e Docker inclu\u00eddas no README.md"
       }
     ]
   }

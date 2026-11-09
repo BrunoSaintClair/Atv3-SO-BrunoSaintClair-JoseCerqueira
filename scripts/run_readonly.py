@@ -41,6 +41,12 @@ def prepare_synthetic_directory() -> None:
 
 
 def generate_interpretation_markdown(data: Dict[str, Any]) -> str:
+    source_path = data['mount_configuration']['source']
+    try:
+        source_display = os.path.relpath(source_path, os.getcwd())
+    except Exception:
+        source_display = source_path
+
     return f"""# Análise e Interpretação de Segurança: Montagem Read-Only e Menor Privilégio
 
 Este documento formaliza as evidências experimentais da execução sob o princípio do menor privilégio e isolamento de sistemas de arquivos via montagem somente leitura (*read-only bind mount*).
@@ -51,7 +57,7 @@ Este documento formaliza as evidências experimentais da execução sob o princ�
 - **Remoção de Privilégios (*Capabilities*):** `{data['security_profile']['cap_drop']}`.
 - **Proteção contra Escalação:** `no-new-privileges:true` (impede transição via binários *setuid/setgid*).
 - **Pilha de Rede:** `{data['security_profile']['network']}` (completamente desabilitada).
-- **Ponto de Montagem:** Bind mount de `{data['mount_configuration']['source']}` para `{data['mount_configuration']['target']}` com flag `readonly=true`.
+- **Ponto de Montagem:** Bind mount de `{source_display}` para `{data['mount_configuration']['target']}` com flag `readonly=true`.
 - **Resultado do Teste de Leitura:**
   - Status: **{data['results']['read_status']}**
   - Conteúdo verificado: `"{data['results']['read_content']}"`

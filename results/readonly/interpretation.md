@@ -8,7 +8,7 @@ Este documento formaliza as evidências experimentais da execução sob o princ�
 - **Remoção de Privilégios (*Capabilities*):** `ALL`.
 - **Proteção contra Escalação:** `no-new-privileges:true` (impede transição via binários *setuid/setgid*).
 - **Pilha de Rede:** `none` (completamente desabilitada).
-- **Ponto de Montagem:** Bind mount de `/home/bruno/Desktop/Faculdade/10/SO/Unidade 3/dados_demo` para `/dados` com flag `readonly=true`.
+- **Ponto de Montagem:** Bind mount de `dados_demo` para `/dados` com flag `readonly=true`.
 - **Resultado do Teste de Leitura:**
   - Status: **Sucesso**
   - Conteúdo verificado: `"Documento sintetico"`

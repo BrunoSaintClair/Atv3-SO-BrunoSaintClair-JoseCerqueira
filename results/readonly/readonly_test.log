@@ -1,5 +1,5 @@
 === LOG DE EXECUÇÃO: TESTE DE MONTAGEM SOMENTE LEITURA ===
-Data UTC: 2026-11-08T20:13:19.691597+00:00
+Data UTC: 2026-11-09T18:02:45.250671+00:00
 Código de Saída: 0
 Comando Executado: docker run --rm --name so-atividade3-readonly-test --label project=so-atividade3 --label module=readonly --network none --user 1000:1000 --cap-drop=ALL --security-opt no-new-privileges:true --mount type=bind,source=/home/bruno/Desktop/Faculdade/10/SO/Unidade 3/dados_demo,target=/dados,readonly so-atividade3:latest python /app/test_readonly.py
 

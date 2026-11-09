@@ -12,15 +12,15 @@
 | Bind mount read-only | **PASS** | `results/readonly/readonly_test.json (error_code=EROFS, errno=30)` |
 | Testes automatizados | **PASS** | `scripts/test_readonly.py e scripts/worker.py` |
 | Geração de resultados | **PASS** | `results/cgroups/csv/results.csv e results/graphs/*.png` |
-| Documentação | **PASS** | `README.md e results/report/relatorio.pdf` |
+| Documentação | **PASS** | `README.md, docs/ e relatórios técnicos em results/` |
 | Reexecução do projeto | **PASS** | `scripts/main.py (orquestrador executável com suporte a check, all, cleanup)` |
 
 ---
 
 ## 2. Indicadores Gerais de Conformidade Técnica
 
-- **Índice Geral de Conformidade:** `100.0%` (48/48 verificações aprovadas)
-- **PASS:** 48
+- **Índice Geral de Conformidade:** `100.0%` (51/51 verificações aprovadas)
+- **PASS:** 51
 - **FAIL:** 0
 - **NOT_RUN:** 0
 - **BLOCKED:** 0
@@ -42,12 +42,12 @@
 | Contêiner A criado | **PASS** | Contêiner A: so-atividade3-ns-a |
 | Contêiner B criado | **PASS** | Contêiner B: so-atividade3-ns-b |
 | PID interno registrado | **PASS** | Comm PID 1: sleep e sleep |
-| PID do host do daemon registrado | **PASS** | Host PIDs: 160574 e 160668 |
-| PID namespace coletado | **PASS** | A: pid:[4026533481] | B: pid:[4026533542] |
-| Mount namespace coletado | **PASS** | A: mnt:[4026533478] | B: mnt:[4026533539] |
-| Network namespace coletado | **PASS** | A: net:[4026533483] | B: net:[4026533544] |
+| PID do host do daemon registrado | **PASS** | Host PIDs: 329376 e 329454 |
+| PID namespace coletado | **PASS** | A: pid:[4026533157] | B: pid:[4026533482] |
+| Mount namespace coletado | **PASS** | A: mnt:[4026533138] | B: mnt:[4026533479] |
+| Network namespace coletado | **PASS** | A: net:[4026533159] | B: net:[4026533484] |
 | Tabela comparativa criada | **PASS** | Arquivo results/namespaces/namespaces.csv existente |
-| Interpretação escrita | **PASS** | Interpretação técnica presente (5147 caracteres) |
+| Interpretação escrita | **PASS** | Interpretação técnica presente (5139 caracteres) |
 
 ### Cgroups
 
@@ -70,7 +70,7 @@
 | Medianas calculadas | **PASS** | C1: 13.0738s | C2: 6.1143s |
 | Variação calculada | **PASS** | C1 StdDev: 1.2035s | C2 StdDev: 0.2934s |
 | Gráfico gerado | **PASS** | Gráficos work_per_second.png e wall_time_comparison.png gerados |
-| Análise documentada | **PASS** | docs/analysis.md presente (7152 caracteres) |
+| Análise documentada | **PASS** | docs/analysis.md presente (7142 caracteres) |
 
 ### Read-only
 
@@ -88,13 +88,16 @@
 
 | Item de Validação | Status | Detalhes Técnicos |
 |---|:---:|---|
-| README completo | **PASS** | README.md com 14295 caracteres |
-| Relatório PDF gerado | **PASS** | results/report/relatorio.pdf (378.9 KB) |
+| README completo | **PASS** | README.md com 13714 caracteres |
+| Análise técnica de resultados | **PASS** | docs/analysis.md presente com discussão quantitativa aprofundada |
+| Síntese estatística documentada | **PASS** | results/cgroups/summary/summary.md presente com medianas, médias e dispersão |
+| Interpretação de namespaces | **PASS** | results/namespaces/interpretation.md presente com fundamentos de isolamento |
+| Interpretação de read-only | **PASS** | results/readonly/interpretation.md presente com distinção entre VFS e DAC |
 | Dados brutos disponíveis | **PASS** | Arquivos JSON em results/cgroups/raw/ e logs/ |
 | Gráficos disponíveis | **PASS** | PNGs em results/graphs/ |
-| Diagrama disponível | **PASS** | Mermaid em results/environment/architecture.md |
-| Contribuições individuais registradas | **PASS** | Contribuições de Bruno Saint Clair e Jose Cerqueira detalhadas no relatório |
+| Diagrama de arquitetura disponível | **PASS** | Mermaid em results/environment/architecture.md e docs/architecture.md |
+| Contribuições individuais registradas | **PASS** | Contribuições de Bruno Saint Clair e Jose Cerqueira detalhadas no README.md |
 | Declaração de IA disponível | **PASS** | docs/ai_usage.md presente |
 | Limitações documentadas | **PASS** | docs/limitations.md presente |
-| Referências incluídas | **PASS** | Referências aos manuais Linux, Cgroups e Docker incluídas |
+| Referências incluídas | **PASS** | Referências aos manuais Linux, Cgroups e Docker incluídas no README.md |
 

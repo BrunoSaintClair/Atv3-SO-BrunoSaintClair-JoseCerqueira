@@ -110,7 +110,7 @@ O namespace NET virtualiza a pilha de rede completa do kernel: interfaces de red
 
 ### 2.4. O que cada identificador demonstra?
 No Linux, os links simbólicos em `/proc/[pid]/ns/` apontam para objetos especiais do kernel no formato `tipo:[inode_number]`.
-- O contêiner A possui `pid:{data_a['namespaces']['pid']}` e o contêiner B possui `pid:{data_b['namespaces']['pid']}`.
+- O contêiner A possui `{data_a['namespaces']['pid']}` e o contêiner B possui `{data_b['namespaces']['pid']}`.
 - O número de inode diferente comprova matematicamente que o kernel alocou estruturas de dados `struct nsproxy` e `struct pid_namespace` distintas na memória do kernel para cada um dos contêineres.
 
 ### 2.5. Por que os dois contêineres possuem PID 1 internamente?

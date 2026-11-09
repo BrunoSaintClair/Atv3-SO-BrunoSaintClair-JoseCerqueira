@@ -325,11 +325,14 @@ def validate_all() -> Dict[str, Any]:
     categories["Read-only"] = ro_items
 
     # -------------------------------------------------------------
-    # 5. Documentação Técnica
+    # 5. Documentação Técnica dos Resultados
     # -------------------------------------------------------------
     doc_items = []
     readme_content = load_file_safe("README.md")
-    pdf_exists = os.path.exists("results/report/relatorio.pdf")
+    analysis_exists = os.path.exists("docs/analysis.md")
+    summary_exists = os.path.exists("results/cgroups/summary/summary.md")
+    ns_interp_exists = os.path.exists("results/namespaces/interpretation.md")
+    ro_interp_exists = os.path.exists("results/readonly/interpretation.md")
 
     doc_items.append({
         "item": "README completo",
@@ -337,9 +340,24 @@ def validate_all() -> Dict[str, Any]:
         "detail": f"README.md com {len(readme_content)} caracteres"
     })
     doc_items.append({
-        "item": "Relatório PDF gerado",
-        "status": "PASS" if pdf_exists else "NOT_RUN",
-        "detail": f"results/report/relatorio.pdf ({os.path.getsize('results/report/relatorio.pdf') / 1024:.1f} KB)" if pdf_exists else "PDF ausente"
+        "item": "Análise técnica de resultados",
+        "status": "PASS" if analysis_exists else "NOT_RUN",
+        "detail": "docs/analysis.md presente com discussão quantitativa aprofundada"
+    })
+    doc_items.append({
+        "item": "Síntese estatística documentada",
+        "status": "PASS" if summary_exists else "NOT_RUN",
+        "detail": "results/cgroups/summary/summary.md presente com medianas, médias e dispersão"
+    })
+    doc_items.append({
+        "item": "Interpretação de namespaces",
+        "status": "PASS" if ns_interp_exists else "NOT_RUN",
+        "detail": "results/namespaces/interpretation.md presente com fundamentos de isolamento"
+    })
+    doc_items.append({
+        "item": "Interpretação de read-only",
+        "status": "PASS" if ro_interp_exists else "NOT_RUN",
+        "detail": "results/readonly/interpretation.md presente com distinção entre VFS e DAC"
     })
     doc_items.append({
         "item": "Dados brutos disponíveis",
@@ -352,14 +370,14 @@ def validate_all() -> Dict[str, Any]:
         "detail": "PNGs em results/graphs/"
     })
     doc_items.append({
-        "item": "Diagrama disponível",
+        "item": "Diagrama de arquitetura disponível",
         "status": "PASS" if diag_ok else "NOT_RUN",
-        "detail": "Mermaid em results/environment/architecture.md"
+        "detail": "Mermaid em results/environment/architecture.md e docs/architecture.md"
     })
     doc_items.append({
         "item": "Contribuições individuais registradas",
-        "status": "PASS" if "Bruno Saint Clair" in load_file_safe("results/report/relatorio.md") and "Jose Cerqueira" in load_file_safe("results/report/relatorio.md") else "FAIL",
-        "detail": "Contribuições de Bruno Saint Clair e Jose Cerqueira detalhadas no relatório"
+        "status": "PASS" if ("Bruno Saint Clair" in readme_content and "Jose Cerqueira" in readme_content) else "FAIL",
+        "detail": "Contribuições de Bruno Saint Clair e Jose Cerqueira detalhadas no README.md"
     })
     doc_items.append({
         "item": "Declaração de IA disponível",
@@ -373,8 +391,8 @@ def validate_all() -> Dict[str, Any]:
     })
     doc_items.append({
         "item": "Referências incluídas",
-        "status": "PASS" if "man7.org" in load_file_safe("results/report/relatorio.md") else "FAIL",
-        "detail": "Referências aos manuais Linux, Cgroups e Docker incluídas"
+        "status": "PASS" if "man7.org" in readme_content else "FAIL",
+        "detail": "Referências aos manuais Linux, Cgroups e Docker incluídas no README.md"
     })
     categories["Documentação"] = doc_items
 
@@ -424,8 +442,8 @@ def validate_all() -> Dict[str, Any]:
         },
         {
             "item": "Documentação",
-            "status": "PASS" if (len(readme_content) > 500 and pdf_exists) else "FAIL",
-            "evidence": "README.md e results/report/relatorio.pdf"
+            "status": "PASS" if (len(readme_content) > 500 and analysis_exists and summary_exists) else "FAIL",
+            "evidence": "README.md, docs/ e relatórios técnicos em results/"
         },
         {
             "item": "Reexecução do projeto",

@@ -18,14 +18,14 @@
    - [6.5. Medições Oficiais de Cgroups (`cgroups`)](#65-medições-oficiais-de-cgroups-cgroups)
    - [6.6. Montagem Somente Leitura (`readonly`)](#66-montagem-somente-leitura-readonly)
    - [6.7. Consolidação e Gráficos (`analyze`)](#67-consolidação-e-gráficos-analyze)
-   - [6.8. Geração do Relatório PDF e Markdown (`report`)](#68-geração-do-relatório-pdf-e-markdown-report)
-   - [6.9. Validação Automática de Integridade (`validate`)](#69-validação-automática-de-integridade-validate)
-   - [6.10. Execução Completa em Comando Único (`all`)](#610-execução-completa-em-comando-único-all)
+   - [6.8. Validação Automática de Integridade (`validate`)](#68-validação-automática-de-integridade-validate)
+   - [6.9. Execução Completa em Comando Único (`all`)](#69-execução-completa-em-comando-único-all)
 7. [Limpeza Segura do Ambiente (`cleanup`)](#7-limpeza-segura-do-ambiente-cleanup)
 8. [Localização dos Dados Brutos e Evidências](#8-localização-dos-dados-brutos-e-evidências)
 9. [Como Interpretar os Gráficos](#9-como-interpretar-os-gráficos)
 10. [Limitações Conhecidas](#10-limitações-conhecidas)
 11. [Declaração de Uso de IA](#11-declaração-de-uso-de-ia)
+12. [Referências Técnicas](#12-referências-técnicas)
 
 ---
 
@@ -66,7 +66,7 @@ O projeto requer um ambiente Linux real com Cgroups v2 ativo:
 Unidade 3/ (raiz do repositório)
 │
 ├── README.md                           # Manual de reprodução e documentação técnica
-├── requirements.txt                    # Dependências de visualização (matplotlib, reportlab)
+├── requirements.txt                    # Dependência de visualização (matplotlib)
 ├── .gitignore                          # Arquivos ignorados pelo controle de versão
 │
 ├── config/
@@ -86,7 +86,6 @@ Unidade 3/ (raiz do repositório)
 │   ├── test_readonly.py                # Script interno de validação read-only (EROFS)
 │   ├── generate_results.py             # Consolidador de dados em CSV e estatísticas
 │   ├── generate_graphs.py              # Gerador de gráficos em alta resolução (PNG)
-│   ├── generate_report.py              # Gerador do relatório final (Markdown e PDF)
 │   ├── verify_all.py                   # Validador automático de todos os critérios
 │   └── cleanup.py                      # Limpeza segura e direcionada de contêineres
 │
@@ -99,7 +98,7 @@ Unidade 3/ (raiz do repositório)
 │   │   └── summary/                    # statistics.json e summary.md
 │   ├── readonly/                       # Evidências de leitura permitida e escrita EROFS
 │   ├── graphs/                         # work_per_second.png e wall_time_comparison.png
-│   └── report/                         # relatorio.md, relatorio.pdf e validação final
+│   └── report/                         # Matriz de validação e auditoria técnica final
 │
 └── docs/
     ├── architecture.md                 # Arquitetura detalhada e diagrama Mermaid
@@ -178,21 +177,14 @@ python scripts/main.py analyze
 ```
 *Artefatos gerados:* `results/cgroups/csv/results.csv`, `statistics.json`, `summary.md`, `results/graphs/work_per_second.png` e `results/graphs/wall_time_comparison.png`.
 
-### 6.8. Geração do Relatório PDF e Markdown (`report`)
-Gera o relatório técnico final completo com tabelas, figuras e respostas a todas as perguntas da atividade:
-```bash
-python scripts/main.py report
-```
-*Artefatos gerados:* `results/report/relatorio.md` e `results/report/relatorio.pdf`.
-
-### 6.9. Validação Automática de Integridade (`validate`)
+### 6.8. Validação Automática de Integridade (`validate`)
 Verifica todos os requisitos do projeto e gera a matriz de conformidade técnica:
 ```bash
 python scripts/main.py validate
 ```
 *Artefatos gerados:* `results/report/final_validation.json` e `results/report/final_validation.md`.
 
-### 6.10. Execução Completa em Comando Único (`all`)
+### 6.9. Execução Completa em Comando Único (`all`)
 Para reproduzir todo o fluxo sequencial com uma única instrução:
 ```bash
 python scripts/main.py all --yes
@@ -212,13 +204,14 @@ python scripts/main.py cleanup
 ## 8. Localização dos Dados Brutos e Evidências
 
 Todos os dados brutos e registros de auditoria estão organizados em:
-- **Metadados de Máquina:** [`results/environment/environment.json`](file:///home/bruno/Desktop/Faculdade/10/SO/Unidade%203/results/environment/environment.json)
-- **Namespaces Reais:** [`results/namespaces/container_a.json`](file:///home/bruno/Desktop/Faculdade/10/SO/Unidade%203/results/namespaces/container_a.json) e [`container_b.json`](file:///home/bruno/Desktop/Faculdade/10/SO/Unidade%203/results/namespaces/container_b.json)
-- **Execuções Oficiais de Cgroups:** [`results/cgroups/raw/`](file:///home/bruno/Desktop/Faculdade/10/SO/Unidade%203/results/cgroups/raw/)
-- **CSV Consolidado:** [`results/cgroups/csv/results.csv`](file:///home/bruno/Desktop/Faculdade/10/SO/Unidade%203/results/cgroups/csv/results.csv)
-- **Estatísticas Agregadas:** [`results/cgroups/summary/statistics.json`](file:///home/bruno/Desktop/Faculdade/10/SO/Unidade%203/results/cgroups/summary/statistics.json)
-- **Evidências Read-Only:** [`results/readonly/readonly_test.json`](file:///home/bruno/Desktop/Faculdade/10/SO/Unidade%203/results/readonly/readonly_test.json)
-- **Relatório PDF:** [`results/report/relatorio.pdf`](file:///home/bruno/Desktop/Faculdade/10/SO/Unidade%203/results/report/relatorio.pdf)
+- **Metadados de Máquina:** [`results/environment/environment.json`](results/environment/environment.json)
+- **Namespaces Reais:** [`results/namespaces/container_a.json`](results/namespaces/container_a.json) e [`results/namespaces/container_b.json`](results/namespaces/container_b.json)
+- **Execuções Oficiais de Cgroups:** [`results/cgroups/raw/`](results/cgroups/raw/)
+- **CSV Consolidado:** [`results/cgroups/csv/results.csv`](results/cgroups/csv/results.csv)
+- **Estatísticas Agregadas:** [`results/cgroups/summary/statistics.json`](results/cgroups/summary/statistics.json) e [`results/cgroups/summary/summary.md`](results/cgroups/summary/summary.md)
+- **Evidências Read-Only:** [`results/readonly/readonly_test.json`](results/readonly/readonly_test.json)
+- **Discussão e Análise Aprofundada:** [`docs/analysis.md`](docs/analysis.md)
+- **Matriz de Validação Final:** [`results/report/final_validation.md`](results/report/final_validation.md)
 
 ---
 
@@ -239,10 +232,19 @@ Todos os dados brutos e registros de auditoria estão organizados em:
 
 - **Instalação Bare-metal:** O projeto foi calibrado para execução em Linux nativo. Em ambientes virtualizados aninhados (como Docker Desktop ou WSL2), os PIDs inspecionados pertencem ao espaço da máquina virtual intermediária.
 - **Variações Térmicas do Processador:** Escalonamento dinâmico de frequência (Turbo Boost) e ruído de fundo do sistema operacional podem causar desvios residuais de até ~7% em relação à razão teórica de cotas (2,00x).
-- Detalhes completos constam em [`docs/limitations.md`](file:///home/bruno/Desktop/Faculdade/10/SO/Unidade%203/docs/limitations.md).
+- Detalhes completos constam em [`docs/limitations.md`](docs/limitations.md).
 
 ---
 
 ## 11. Declaração de Uso de IA
 
-O uso de ferramentas de inteligência artificial (Google Antigravity Assistant / Gemini 3.8 Flash High) foi estritamente restrito ao design de arquitetura de scripts e elaboração de relatórios. Nenhum resultado experimental foi sintetizado ou simulado por IA. Maiores detalhes constam em [`docs/ai_usage.md`](file:///home/bruno/Desktop/Faculdade/10/SO/Unidade%203/docs/ai_usage.md).
+O uso de ferramentas de inteligência artificial (Google Antigravity Assistant / Gemini 3.8 Flash High) foi estritamente restrito ao design de arquitetura de scripts e documentação técnica. Nenhum resultado experimental foi sintetizado ou simulado por IA. Maiores detalhes constam em [`docs/ai_usage.md`](docs/ai_usage.md).
+
+---
+
+## 12. Referências Técnicas
+
+1. **Linux Programmer's Manual:** `namespaces(7)` — Overview of Linux namespaces. Disponível em: <https://man7.org/linux/man-pages/man7/namespaces.7.html>.
+2. **Linux Programmer's Manual:** `cgroups(7)` — Overview of Linux control groups. Disponível em: <https://man7.org/linux/man-pages/man7/cgroups.7.html>.
+3. **Linux Kernel Documentation:** *Control Group v2*. Kernel.org. Disponível em: <https://docs.kernel.org/admin-guide/cgroup-v2.html>.
+4. **Docker Engine Documentation:** *Resource constraints (cgroups)*. Docker Inc. Disponível em: <https://docs.docker.com/engine/containers/resource_constraints/>.

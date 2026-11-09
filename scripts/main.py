@@ -11,7 +11,6 @@ Comandos disponíveis:
   python scripts/main.py cgroups      # Executa as 6 medições oficiais
   python scripts/main.py readonly     # Executa experimento de menor privilégio e read-only
   python scripts/main.py analyze      # Consolida dados em CSV, estatísticas e gráficos
-  python scripts/main.py report       # Gera o relatório técnico em Markdown e PDF
   python scripts/main.py cleanup      # Limpeza segura de contêineres do projeto
   python scripts/main.py validate     # Validação final automática de conformidade
   python scripts/main.py all          # Executa o pipeline completo de ponta a ponta
@@ -63,10 +62,6 @@ def cmd_analyze(args) -> int:
     return run_script("generate_graphs.py")
 
 
-def cmd_report(args) -> int:
-    return run_script("generate_report.py")
-
-
 def cmd_cleanup(args) -> int:
     return run_script("cleanup.py")
 
@@ -116,8 +111,7 @@ def cmd_all(args) -> int:
         ("6. Experimento Read-Only e Menor Privilégio", "run_readonly.py", None),
         ("7. Consolidação de Resultados CSV e Estatísticas", "generate_results.py", None),
         ("8. Geração de Gráficos em Alta Resolução", "generate_graphs.py", None),
-        ("9. Geração do Relatório Técnico (Markdown e PDF)", "generate_report.py", None),
-        ("10. Validação Final Automática dos Resultados", "verify_all.py", None),
+        ("9. Validação Final Automática dos Resultados", "verify_all.py", None),
     ]
 
     for label, script, extra in remaining_steps:
@@ -151,7 +145,6 @@ def main() -> int:
     subparsers.add_parser("cgroups", help="Executa as seis medições oficiais").set_defaults(func=cmd_cgroups)
     subparsers.add_parser("readonly", help="Executa experimento read-only").set_defaults(func=cmd_readonly)
     subparsers.add_parser("analyze", help="Consolida dados e gera gráficos").set_defaults(func=cmd_analyze)
-    subparsers.add_parser("report", help="Gera relatório em Markdown e PDF").set_defaults(func=cmd_report)
     subparsers.add_parser("cleanup", help="Limpa contêineres do projeto com segurança").set_defaults(func=cmd_cleanup)
     subparsers.add_parser("validate", help="Executa validação final de integridade").set_defaults(func=cmd_validate)
 

@@ -80,5 +80,3 @@ A quota de CPU (`cpu.max`) impõe um **teto superior de alocação de tempo no r
 Embora a razão teórica de cotas seja $1,0 / 0,5 = 2,00$, a razão empírica obtida foi de **$2,138$** (divergência de 6,9%). As razões para essa não-linearidade incluem:
 - **Sobrecarga de Interrupção e Troca de Contexto:** Em C1, o processo foi suspenso e retomado mais de 120 vezes (`nr_throttled`). Cada ciclo de throttling exige que o kernel desassocie a tarefa da fila de prontos (*runqueue*), arme um *timer* de alta resolução (*hrtimer*) para o próximo período e execute uma troca de contexto, incorrendo em penalidades adicionais de latência ausentes em C2.
 - **Efeitos de Localidade de Cache:** No contêiner C2, o processo permaneceu executando de forma ininterrupta, preservando linhas quentes de cache nos níveis L1 e L2 do núcleo, potencializando a taxa de instruções por ciclo (IPC).
-"""
-,Path:

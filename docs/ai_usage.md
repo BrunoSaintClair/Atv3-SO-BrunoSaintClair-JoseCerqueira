@@ -6,23 +6,26 @@ Em conformidade com as diretrizes acadêmicas da disciplina de Sistemas Operacio
 
 ## 1. Identificação do Modelo e Ferramentas
 
-- **Ferramenta / Modelo Utilizado:** Google Antigravity Assistant (Gemini 3.8 Flash High).
+- **Ferramenta / Modelo Utilizado:** Google Antigravity Assistant (Gemini 3.8 Flash High e Medium).
 - **Ambiente de Execução:** Antigravity CLI integrado ao ambiente Linux de desenvolvimento.
-- **Finalidade:** Auxílio no planejamento da arquitetura de automação, estruturação do boilerplate de scripts Python, elaboração de comandos do Docker CLI e formatação dos relatórios em Markdown e PDF.
+- **Finalidade:** Auxílio no planejamento da automação dos experimentos, estruturação de scripts em Python, elaboração de comandos do Docker CLI, tratamento estatístico dos dados e apoio na geração de gráficos.
 - **Regra Fundamental Respeitada:** Nenhuma saída textual ou heurística gerada pela IA foi utilizada como resultado ou evidência experimental. Todas as métricas, tempos, *inodes* de namespaces e identificadores numéricos foram obtidos exclusivamente por meio da execução de comandos reais no sistema operacional Linux e no Docker Engine.
 
 ---
 
 ## 2. Prompts Relevantes Utilizados
 
-### Prompt 1 — Estruturação do Worker Determinístico e Medição de Cgroups v2
-> *"Desenvolva uma rotina de carga CPU-bound em Python puro, baseada em gerador linear congruente com operações inteiras e máscara de 32 bits, que seja estritamente determinística e independente de bibliotecas externas. A rotina deve calcular wall time com `time.perf_counter()`, CPU time com `time.process_time()` e capturar snapshots dos pseudo-arquivos de Cgroups v2 em `/sys/fs/cgroup/cpu.stat`, calculando os deltas de `usage_usec` e `throttled_usec`."*
+### Prompt 1 — Implementação da Carga de CPU e Leitura de Cgroups v2
+> *"Preciso criar um script em Python para rodar dentro de um container Docker e testar limites de CPU com cgroups v2. A carga precisa ser puramente computacional (sem depender de rede ou disco) e precisa ser determinística, fazendo exatamente as mesmas operações a cada execução para comparar os tempos de forma justa. Como posso implementar esse loop e ler as métricas de tempo e throttling direto dos arquivos do cgroups v2?"*
 
-### Prompt 2 — Desacoplamento entre DAC e VFS no Teste Read-Only
-> *"Como estruturar um teste automatizado no Docker que comprove que a negação de escrita decorre especificamente da flag de montagem readonly do VFS do kernel e não de permissões tradicionais POSIX (DAC)? Proponha um mecanismo que distinga o código de erro EROFS de EACCES."*
+### Prompt 2 — Inspeção e Comprovação de Namespaces
+> *"Como posso inspecionar os identificadores reais de namespaces (PID, rede e montagem) de dois containers rodando no Docker para demonstrar o isolamento? Tem como ler direto do `/proc` de cada container para comparar os IDs numéricos dos namespaces?"*
 
-### Prompt 3 — Pipeline Automatizado de Consolidação e Gráficos
-> *"Implemente um script de agregação que processe os JSONs individuais das 6 execuções de cgroups, calcule a mediana e dispersão do tempo de execução e taxa de trabalho, e gere gráficos em alta resolução no Matplotlib destacando a mediana e as barras de erro empíricas."*
+### Prompt 3 — Desacoplamento entre DAC e VFS no Teste Read-Only
+> *"Na atividade prática, preciso montar uma pasta como somente leitura no container com usuário não-root. Mas o professor exige que o teste comprove que o bloqueio de escrita aconteceu por causa da montagem read-only do kernel, e não porque o usuário não tinha permissão no arquivo (chmod). Como posso montar um cenário de teste automatizado que diferencie o erro EROFS de um EACCES?"*
+
+### Prompt 4 — Agregação dos Resultados e Gráficos
+> *"Tenho os arquivos JSON das execuções alternadas do experimento de cgroups (3 repetições para C1 e 3 para C2). Preciso de um script para consolidar esses dados em um CSV, calcular média, mediana e desvio padrão, e gerar gráficos no Matplotlib comparando o tempo de execução e a taxa de trabalho por segundo."*
 
 ---
 

@@ -19,8 +19,8 @@
 
 ## 2. Indicadores Gerais de Conformidade Técnica
 
-- **Índice Geral de Conformidade:** `100.0%` (51/51 verificações aprovadas)
-- **PASS:** 51
+- **Índice Geral de Conformidade:** `100.0%` (50/50 verificações aprovadas)
+- **PASS:** 50
 - **FAIL:** 0
 - **NOT_RUN:** 0
 - **BLOCKED:** 0
@@ -88,7 +88,7 @@
 
 | Item de Validação | Status | Detalhes Técnicos |
 |---|:---:|---|
-| README completo | **PASS** | README.md com 13714 caracteres |
+| README completo | **PASS** | README.md com 12883 caracteres |
 | Análise técnica de resultados | **PASS** | docs/analysis.md presente com discussão quantitativa aprofundada |
 | Síntese estatística documentada | **PASS** | results/cgroups/summary/summary.md presente com medianas, médias e dispersão |
 | Interpretação de namespaces | **PASS** | results/namespaces/interpretation.md presente com fundamentos de isolamento |
@@ -96,7 +96,6 @@
 | Dados brutos disponíveis | **PASS** | Arquivos JSON em results/cgroups/raw/ e logs/ |
 | Gráficos disponíveis | **PASS** | PNGs em results/graphs/ |
 | Diagrama de arquitetura disponível | **PASS** | Mermaid em results/environment/architecture.md e docs/architecture.md |
-| Contribuições individuais registradas | **PASS** | Contribuições de Bruno Saint Clair e Jose Cerqueira detalhadas no README.md |
 | Declaração de IA disponível | **PASS** | docs/ai_usage.md presente |
 | Limitações documentadas | **PASS** | docs/limitations.md presente |
 | Referências incluídas | **PASS** | Referências aos manuais Linux, Cgroups e Docker incluídas no README.md |

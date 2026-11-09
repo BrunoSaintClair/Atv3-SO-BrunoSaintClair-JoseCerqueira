@@ -375,11 +375,6 @@ def validate_all() -> Dict[str, Any]:
         "detail": "Mermaid em results/environment/architecture.md e docs/architecture.md"
     })
     doc_items.append({
-        "item": "Contribuições individuais registradas",
-        "status": "PASS" if ("Bruno Saint Clair" in readme_content and "Jose Cerqueira" in readme_content) else "FAIL",
-        "detail": "Contribuições de Bruno Saint Clair e Jose Cerqueira detalhadas no README.md"
-    })
-    doc_items.append({
         "item": "Declaração de IA disponível",
         "status": "PASS" if os.path.exists("docs/ai_usage.md") else "NOT_RUN",
         "detail": "docs/ai_usage.md presente"

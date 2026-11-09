@@ -6,26 +6,25 @@
 ## Sumário
 
 1. [Objetivos do Projeto](#1-objetivos-do-projeto)
-2. [Identificação da Equipe](#2-identificação-da-equipe)
-3. [Pré-requisitos e Ambiente Suportado](#3-pré-requisitos-e-ambiente-suportado)
-4. [Estrutura do Repositório](#4-estrutura-do-repositório)
-5. [Instalação Rápida](#5-instalação-rápida)
-6. [Guia de Execução Passo a Passo](#6-guia-de-execução-passo-a-passo)
-   - [6.1. Verificação do Ambiente (`check`)](#61-verificação-do-ambiente-check)
-   - [6.2. Documentação da Infraestrutura (`environment`)](#62-documentação-da-infraestrutura-environment)
-   - [6.3. Experimento de Namespaces (`namespaces`)](#63-experimento-de-namespaces-namespaces)
-   - [6.4. Teste Piloto e Congelamento (`pilot`)](#64-teste-piloto-e-congelamento-pilot)
-   - [6.5. Medições Oficiais de Cgroups (`cgroups`)](#65-medições-oficiais-de-cgroups-cgroups)
-   - [6.6. Montagem Somente Leitura (`readonly`)](#66-montagem-somente-leitura-readonly)
-   - [6.7. Consolidação e Gráficos (`analyze`)](#67-consolidação-e-gráficos-analyze)
-   - [6.8. Validação Automática de Integridade (`validate`)](#68-validação-automática-de-integridade-validate)
-   - [6.9. Execução Completa em Comando Único (`all`)](#69-execução-completa-em-comando-único-all)
-7. [Limpeza Segura do Ambiente (`cleanup`)](#7-limpeza-segura-do-ambiente-cleanup)
-8. [Localização dos Dados Brutos e Evidências](#8-localização-dos-dados-brutos-e-evidências)
-9. [Como Interpretar os Gráficos](#9-como-interpretar-os-gráficos)
-10. [Limitações Conhecidas](#10-limitações-conhecidas)
-11. [Declaração de Uso de IA](#11-declaração-de-uso-de-ia)
-12. [Referências Técnicas](#12-referências-técnicas)
+2. [Pré-requisitos e Ambiente Suportado](#2-pré-requisitos-e-ambiente-suportado)
+3. [Estrutura do Repositório](#3-estrutura-do-repositório)
+4. [Instalação Rápida](#4-instalação-rápida)
+5. [Guia de Execução Passo a Passo](#5-guia-de-execução-passo-a-passo)
+   - [5.1. Verificação do Ambiente (`check`)](#51-verificação-do-ambiente-check)
+   - [5.2. Documentação da Infraestrutura (`environment`)](#52-documentação-da-infraestrutura-environment)
+   - [5.3. Experimento de Namespaces (`namespaces`)](#53-experimento-de-namespaces-namespaces)
+   - [5.4. Teste Piloto e Congelamento (`pilot`)](#54-teste-piloto-e-congelamento-pilot)
+   - [5.5. Medições Oficiais de Cgroups (`cgroups`)](#55-medições-oficiais-de-cgroups-cgroups)
+   - [5.6. Montagem Somente Leitura (`readonly`)](#56-montagem-somente-leitura-readonly)
+   - [5.7. Consolidação e Gráficos (`analyze`)](#57-consolidação-e-gráficos-analyze)
+   - [5.8. Validação Automática de Integridade (`validate`)](#58-validação-automática-de-integridade-validate)
+   - [5.9. Execução Completa em Comando Único (`all`)](#59-execução-completa-em-comando-único-all)
+6. [Limpeza Segura do Ambiente (`cleanup`)](#6-limpeza-segura-do-ambiente-cleanup)
+7. [Localização dos Dados Brutos e Evidências](#7-localização-dos-dados-brutos-e-evidências)
+8. [Como Interpretar os Gráficos](#8-como-interpretar-os-gráficos)
+9. [Limitações Conhecidas](#9-limitações-conhecidas)
+10. [Declaração de Uso de IA](#10-declaração-de-uso-de-ia)
+11. [Referências Técnicas](#11-referências-técnicas)
 
 ---
 
@@ -39,18 +38,7 @@ Implementar e validar experimentalmente:
 
 ---
 
-## 2. Identificação da Equipe
-
-- **Instituição:** Universidade Federal de Sergipe (UFS) — Departamento de Computação (DCOMP)
-- **Integrantes:**
-  - **Bruno Saint Clair** (`brunosaint@dcomp.ufs.br`)
-    - *Contribuição:* Concepção da arquitetura dos experimentos, desenvolvimento do orquestrador de cgroups v2 (`run_cgroups.py`), implementação da carga de trabalho determinística (`worker.py`), validação de contadores do escalonador do kernel e consolidação estatística.
-  - **Jose Cerqueira**
-    - *Contribuição:* Implementação do módulo de inspeção de namespaces (`run_namespaces.py`), módulo de menor privilégio e montagem read-only (`run_readonly.py`), calibração do piloto, pipeline de geração de gráficos em alta resolução e elaboração do relatório técnico.
-
----
-
-## 3. Pré-requisitos e Ambiente Suportado
+## 2. Pré-requisitos e Ambiente Suportado
 
 O projeto requer um ambiente Linux real com Cgroups v2 ativo:
 - **Sistema Operacional:** Linux (testado e homologado em Ubuntu 24.04.5 LTS / Kernel 7.0.0-38-generic x86_64).
@@ -60,7 +48,7 @@ O projeto requer um ambiente Linux real com Cgroups v2 ativo:
 
 ---
 
-## 4. Estrutura do Repositório
+## 3. Estrutura do Repositório
 
 ```text
 Unidade 3/ (raiz do repositório)
@@ -110,7 +98,7 @@ Unidade 3/ (raiz do repositório)
 
 ---
 
-## 5. Instalação Rápida
+## 4. Instalação Rápida
 
 Em seu terminal Linux, configure o ambiente virtual Python com as bibliotecas necessárias para geração de gráficos e PDF:
 
@@ -125,66 +113,66 @@ pip install -r requirements.txt
 
 ---
 
-## 6. Guia de Execução Passo a Passo
+## 5. Guia de Execução Passo a Passo
 
 Todas as operações são executadas de forma padronizada através do script central `scripts/main.py`.
 
-### 6.1. Verificação do Ambiente (`check`)
+### 5.1. Verificação do Ambiente (`check`)
 Valida automaticamente Python, Docker Daemon, suporte a Cgroups v2, controladores em `/sys/fs/cgroup/`, Git e permissões:
 ```bash
 python scripts/main.py check
 ```
 
-### 6.2. Documentação da Infraestrutura (`environment`)
+### 5.2. Documentação da Infraestrutura (`environment`)
 Inspeciona os nós do host, fixa a imagem base `python:3.12-slim` pelo digest SHA-256 e constrói a imagem local `so-atividade3:latest`:
 ```bash
 python scripts/main.py environment
 ```
 *Artefatos gerados:* `results/environment/environment.json`, `environment.txt` e `architecture.md`.
 
-### 6.3. Experimento de Namespaces (`namespaces`)
+### 5.3. Experimento de Namespaces (`namespaces`)
 Inicia dois contêineres independentes (`so-atividade3-ns-a` e `so-atividade3-ns-b`), coleta os PIDs do host, PID 1 interno e os identificadores de *inode* dos namespaces PID, MNT e NET:
 ```bash
 python scripts/main.py namespaces
 ```
 *Artefatos gerados:* `results/namespaces/container_a.json`, `container_b.json`, `namespaces.csv`, `namespaces_comparison.md` e `interpretation.md`.
 
-### 6.4. Teste Piloto e Congelamento (`pilot`)
+### 5.4. Teste Piloto e Congelamento (`pilot`)
 Executa uma rodada na condição C1 para calibrar o tempo de execução e congelar o número de iterações em `config/experiment.json`:
 ```bash
 python scripts/main.py pilot
 ```
 *Artefatos gerados:* `results/cgroups/raw/C1_pilot.json`, `pilot_summary.json` e atualização do `config/experiment.json`.
 
-### 6.5. Medições Oficiais de Cgroups (`cgroups`)
+### 5.5. Medições Oficiais de Cgroups (`cgroups`)
 Executa as seis repetições oficiais na ordem alternada obrigatória (C1_rep1 $\rightarrow$ C2_rep1 $\rightarrow$ C1_rep2 $\rightarrow$ C2_rep2 $\rightarrow$ C1_rep3 $\rightarrow$ C2_rep3):
 ```bash
 python scripts/main.py cgroups
 ```
 *Artefatos gerados:* `results/cgroups/raw/C{1,2}_rep{1,2,3}.json` e seus respectivos arquivos de log em `results/cgroups/raw/logs/`.
 
-### 6.6. Montagem Somente Leitura (`readonly`)
+### 5.6. Montagem Somente Leitura (`readonly`)
 Executa o contêiner com UID 1000, `--cap-drop=ALL`, `no-new-privileges:true` e bind mount somente leitura da pasta sintética `dados_demo/` (preparada propositalmente com `chmod 777`):
 ```bash
 python scripts/main.py readonly
 ```
 *Artefatos gerados:* `results/readonly/readonly_test.json`, `readonly_test.log` e `interpretation.md`.
 
-### 6.7. Consolidação e Gráficos (`analyze`)
+### 5.7. Consolidação e Gráficos (`analyze`)
 Processa os dados brutos, consolida o arquivo `results.csv`, calcula medianas, médias e desvios padrões e gera os gráficos PNG em alta resolução:
 ```bash
 python scripts/main.py analyze
 ```
 *Artefatos gerados:* `results/cgroups/csv/results.csv`, `statistics.json`, `summary.md`, `results/graphs/work_per_second.png` e `results/graphs/wall_time_comparison.png`.
 
-### 6.8. Validação Automática de Integridade (`validate`)
+### 5.8. Validação Automática de Integridade (`validate`)
 Verifica todos os requisitos do projeto e gera a matriz de conformidade técnica:
 ```bash
 python scripts/main.py validate
 ```
 *Artefatos gerados:* `results/report/final_validation.json` e `results/report/final_validation.md`.
 
-### 6.9. Execução Completa em Comando Único (`all`)
+### 5.9. Execução Completa em Comando Único (`all`)
 Para reproduzir todo o fluxo sequencial com uma única instrução:
 ```bash
 python scripts/main.py all --yes
@@ -192,7 +180,7 @@ python scripts/main.py all --yes
 
 ---
 
-## 7. Limpeza Segura do Ambiente (`cleanup`)
+## 6. Limpeza Segura do Ambiente (`cleanup`)
 
 Para remover os contêineres de teste sem afetar contêineres de outros projetos ou apagar os dados experimentais coletados:
 ```bash
@@ -201,7 +189,7 @@ python scripts/main.py cleanup
 
 ---
 
-## 8. Localização dos Dados Brutos e Evidências
+## 7. Localização dos Dados Brutos e Evidências
 
 Todos os dados brutos e registros de auditoria estão organizados em:
 - **Metadados de Máquina:** [`results/environment/environment.json`](results/environment/environment.json)
@@ -215,7 +203,7 @@ Todos os dados brutos e registros de auditoria estão organizados em:
 
 ---
 
-## 9. Como Interpretar os Gráficos
+## 8. Como Interpretar os Gráficos
 
 1. **`work_per_second.png` (Trabalho por Segundo):**
    - Apresenta a mediana do throughput computacional nas condições C1 (0,5 CPU) e C2 (1,0 CPU).
@@ -228,7 +216,7 @@ Todos os dados brutos e registros de auditoria estão organizados em:
 
 ---
 
-## 10. Limitações Conhecidas
+## 9. Limitações Conhecidas
 
 - **Instalação Bare-metal:** O projeto foi calibrado para execução em Linux nativo. Em ambientes virtualizados aninhados (como Docker Desktop ou WSL2), os PIDs inspecionados pertencem ao espaço da máquina virtual intermediária.
 - **Variações Térmicas do Processador:** Escalonamento dinâmico de frequência (Turbo Boost) e ruído de fundo do sistema operacional podem causar desvios residuais de até ~7% em relação à razão teórica de cotas (2,00x).
@@ -236,13 +224,13 @@ Todos os dados brutos e registros de auditoria estão organizados em:
 
 ---
 
-## 11. Declaração de Uso de IA
+## 10. Declaração de Uso de IA
 
 O uso de ferramentas de inteligência artificial (Google Antigravity Assistant / Gemini 3.8 Flash High) foi estritamente restrito ao design de arquitetura de scripts e documentação técnica. Nenhum resultado experimental foi sintetizado ou simulado por IA. Maiores detalhes constam em [`docs/ai_usage.md`](docs/ai_usage.md).
 
 ---
 
-## 12. Referências Técnicas
+## 11. Referências Técnicas
 
 1. **Linux Programmer's Manual:** `namespaces(7)` — Overview of Linux namespaces. Disponível em: <https://man7.org/linux/man-pages/man7/namespaces.7.html>.
 2. **Linux Programmer's Manual:** `cgroups(7)` — Overview of Linux control groups. Disponível em: <https://man7.org/linux/man-pages/man7/cgroups.7.html>.
